@@ -1,0 +1,17 @@
+{
+    "name": "isaac/mvc1",
+    "authors": [
+        {
+            "name": "Isaac Vásquez",
+            "email": "jorge.vasquez@ulatina.cr"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "classmap": [
+            "controller/",
+            "model/"
+        ]
+    }
+}
