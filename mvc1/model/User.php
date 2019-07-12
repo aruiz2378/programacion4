@@ -2,8 +2,11 @@
 
 namespace model;
 
-class User
+class User extends Model
 {
+    protected static $tableName = "users";
+    protected static $primaryKey = 'id';
+
     private $user;
     private $passwd;
 
@@ -14,7 +17,7 @@ class User
      */ 
     public function getPasswd()
     {
-        return $this->passwd;
+        return $this->getColumnValue('password');
     }
 
     /**
@@ -24,7 +27,7 @@ class User
      */ 
     public function setPasswd($passwd)
     {
-        $this->passwd = $passwd;
+        $this->setColumnValue('password', $passwd);
     }
 
     /**
@@ -32,7 +35,7 @@ class User
      */ 
     public function getUser()
     {
-        return $this->user;
+        return $this->getColumnValue('user');
     }
 
     /**
@@ -42,7 +45,7 @@ class User
      */ 
     public function setUser($user)
     {
-        $this->user = $user;
+        $this->setColumnValue('user', $user);
 
         return $this;
     }

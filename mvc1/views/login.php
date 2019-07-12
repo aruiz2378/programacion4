@@ -13,12 +13,13 @@
 
 <body>
     <div class="container mt-5">
-        <form action="login" method="GET">
+        <form action="index.php" method="GET">
             <div class="row">
                 <div class="col-12">
                     Login Estático
                 </div>
                 <div class="col-12 mb-2">
+                    <input type="hidden" name="page" value="login">
                     <input type="text" class="form-control" name="user">
                 </div>
                 <div class="col-12 mb-2">

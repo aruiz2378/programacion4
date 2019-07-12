@@ -4,22 +4,20 @@ require_once 'vendor/autoload.php';
 use controller\UserController;
 
 $uri = explode("/", $_SERVER['REQUEST_URI']);
-$modulo = "";
 
-if ( strpos($uri[3], "?") !== false) {
-    $modulo = explode("?",$uri[3])[0];
-} else
-    $modulo = $uri[3];    
+if (!isset($_GET['page']))
+    die('imposible de encontrar la ruta.');
 
-var_dump($modulo);
+$usrController = new UserController();
 
-if (is_null($modulo) || empty($modulo) || $modulo == "index")
-{
-    $usrController = new UserController();
-    require_once($usrController->show() . ".php");
+switch ($_GET['page']) {
+    case 'login':
+        require_once($usrController->createUser($_GET['user'] ?? null, $_GET['password'] ?? null) . ".php");
+        break;
+    default:
+        require_once($usrController->show() . ".php");
+        break;
 }
-else if ($modulo == "login") {
-    $usrController = new UserController();
-    require_once($usrController->validateUser($_GET['user'], $_GET['password']) . ".php");
-}
+
+
 

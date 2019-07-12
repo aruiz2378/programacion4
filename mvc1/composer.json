@@ -11,7 +11,8 @@
     "autoload": {
         "classmap": [
             "controller/",
-            "model/"
+            "model/",
+            "libs/"
         ]
     }
 }
