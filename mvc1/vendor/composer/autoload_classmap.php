@@ -8,7 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'controller\\BaseController' => $baseDir . '/controller/BaseController.php',
     'controller\\UserController' => $baseDir . '/controller/UserController.php',
-    'libs\\Database\\Database' => $baseDir . '/libs/DataBase.php',
-    'model\\Model' => $baseDir . '/model/Model.php',
     'model\\User' => $baseDir . '/model/User.php',
 );

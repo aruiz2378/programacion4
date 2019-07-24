@@ -1,6 +1,8 @@
 <?php
 require_once 'vendor/autoload.php';
 
+session_start();
+
 use controller\UserController;
 
 $uri = explode("/", $_SERVER['REQUEST_URI']);
@@ -8,7 +10,7 @@ $uri = explode("/", $_SERVER['REQUEST_URI']);
 if (!isset($_GET['page']))
     die('imposible de encontrar la ruta.');
 
-$usrController = new UserController();
+$usrController = UserController::getInstance();
 
 switch ($_GET['page']) {
     case 'login':

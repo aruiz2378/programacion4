@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>MVC · 1</title>
+    <title>Login</title>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
         <form action="index.php" method="GET">
             <div class="row">
                 <div class="col-12">
-                    Login Estático
+                    Crear usuario
                 </div>
                 <div class="col-12 mb-2">
                     <input type="hidden" name="page" value="login">

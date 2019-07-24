@@ -6,8 +6,15 @@ use model\User;
 
 class UserController implements BaseController 
 {
-
-    public static $mUser;
+    public static function getInstance() {
+        if (!isset($_SESSION["instance"]) || !isset($_SESSION["usuarios"])) 
+        {
+            $_SESSION["instance"] = new UserController();
+            $_SESSION["usuarios"] = [];
+        }
+        
+        return $_SESSION["instance"];
+    }
 
     public function show() {
         return "views/login";
@@ -15,17 +22,21 @@ class UserController implements BaseController
 
     public function createUser($user, $pass) 
     {
-        self::$mUser = new User();
-        self::$mUser->setUser($user);
-        self::$mUser->setPasswd($pass);
-        self::$mUser->save();
+        $usr = new User();
+        $usr->setUser($user);
+        $usr->setPasswd($pass);
+
+        array_push($_SESSION["usuarios"], $usr);
 
         return "views/loggedIn";
     }
 
-    public static function getUser() {
-        return self::$mUser;
+    public static function getUserByName($name) 
+    {
+        for ($i = 0; $i < sizeof($_SESSION["usuarios"]); $i++)
+        {
+            if ($_SESSION["usuarios"][$i]->getUser() == $name)
+                return $_SESSION["usuarios"][$i];
+        }
     }
-
-
 }
